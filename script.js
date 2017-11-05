@@ -51,7 +51,6 @@ app.controller('workflowController', function($scope) {
 	var offset;
 	var update = true;
 	function init() {
-		//examples.showDistractor();
 		// create stage and point it to the canvas:
 		canvas = document.getElementById("testCanvas");
 		stage = new createjs.Stage(canvas);
@@ -74,7 +73,7 @@ app.controller('workflowController', function($scope) {
 		var container = new createjs.Container();
 		stage.addChild(container);
 		// create and populate the screen with random daisies:
-		for (var i = 0; i < 1; i++) {
+		for (var i = 0; i < 10; i++) {
 			bitmap = new createjs.Bitmap(image);
 			container.addChild(bitmap);
 			bitmap.x = canvas.width * Math.random() | 0;
@@ -92,26 +91,18 @@ app.controller('workflowController', function($scope) {
 				this.x = evt.stageX + this.offset.x;
 				this.y = evt.stageY + this.offset.y;
 				// indicate that the stage should be updated on the next tick:
-				update = true;
+				stage.update();
 			});
-			// bitmap.on("rollover", function (evt) {
-			// 	this.scale = this.originalScale * 1.2;
-			// 	update = true;
-			// });
-			// bitmap.on("rollout", function (evt) {
-			// 	this.scale = this.originalScale;
-			// 	update = true;
-			// });
+			bitmap.on("rollover", function (evt) {
+				this.scale = this.originalScale * 1.2;
+				stage.update();
+			});
+			bitmap.on("rollout", function (evt) {
+				this.scale = this.originalScale;
+				stage.update();
+			});
 		}
-		//examples.hideDistractor();
-		createjs.Ticker.addEventListener("tick", tick);
+		stage.update();
 	}
-	function tick(event) {
-		// this set makes it so the stage only re-renders when an event handler indicates a change has happened.
-		if (update) {
-			update = false; // only update once
-			stage.update(event);
-		}
-    }
     init();
 });
