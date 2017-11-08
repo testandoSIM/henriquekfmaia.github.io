@@ -27,7 +27,7 @@ app.controller('workflowController', function($scope) {
 		var image = event.target;
 		// create and populate the screen with random daisies:
 		for (var i = 0; i < 10; i++) {
-            var proc = new process(stage);
+            var proc = new Process(stage);
 		}
 		stage.update();
 	}
