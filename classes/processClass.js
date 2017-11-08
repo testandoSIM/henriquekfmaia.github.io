@@ -5,8 +5,8 @@ function Process (stage) {
     this.stage = stage;
     this.container = new createjs.Container();
     this.bitmap = new createjs.Bitmap(image);
-    this.container.x = 1000 * Math.random() | 0;
-    this.container.y = 400 * Math.random() | 0;
+    this.container.x = stage.canvas.width * Math.random() | 0;
+    this.container.y = stage.canvas.height * Math.random() | 0;
 
     this.container.addChild(this.bitmap);
 

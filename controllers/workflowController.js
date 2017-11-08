@@ -8,7 +8,9 @@ app.controller('workflowController', function($scope) {
 	var update = true;
 	function init() {
 		// create stage and point it to the canvas:
-		canvas = document.getElementById("testCanvas");
+        canvas = document.getElementById("testCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 		stage = new createjs.Stage(canvas);
 		// enable touch interactions if supported on the current device:
 		createjs.Touch.enable(stage);
