@@ -8,8 +8,16 @@ app.controller('workflowController', function($scope) {
 	var update = true;
 
 	$scope.NewElement = function () {
-		var proc = new Process($scope.stage);
+		var proc = new Process($scope);
 		$scope.stage.update();
+	}
+
+	$scope.DeleteElement = function () {
+		var toDelete = $scope.selected;
+		if (toDelete) {
+			toDelete.Delete();
+			$scope.stage.update();
+		}
 	}
 
 	function init() {

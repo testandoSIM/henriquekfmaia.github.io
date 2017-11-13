@@ -1,9 +1,17 @@
 var image = new Image();
 image.src = "images/azul.png";
 
-function Process (stage) {
-    this.stage = stage;
+function Process (scope) {
+    this.scope = scope;
+    this.stage = scope.stage;
     this.processImage = new ProcessImage(this);
+    this.Delete = function (){
+        console.log(this.stage);
+        this.stage.removeChild(this.processImage.container);
+        console.log(this.stage);
+        delete this.processImage;
+    }
+    
 }
 
 function ProcessImage (process) {
@@ -24,6 +32,7 @@ function ProcessImage (process) {
     process.stage.addChild(this.container);
 
     this.container.on("mousedown", function (evt) {
+        process.scope.selected = process;
         if(this.movable){
             this.parent.addChild(this);
             this.offset = {x: this.x - evt.stageX, y: this.y - evt.stageY};
