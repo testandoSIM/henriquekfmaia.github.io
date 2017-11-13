@@ -6,17 +6,23 @@ app.controller('workflowController', function($scope) {
 	var dragStarted;	// indicates whether we are currently in a drag operation
 	var offset;
 	var update = true;
+
+	$scope.NewElement = function () {
+		var proc = new Process($scope.stage);
+		$scope.stage.update();
+	}
+
 	function init() {
 		// create stage and point it to the canvas:
         canvas = document.getElementById("testCanvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight * 0.8;
-		stage = new createjs.Stage(canvas);
+		$scope.stage = new createjs.Stage(canvas);
 		// enable touch interactions if supported on the current device:
-		createjs.Touch.enable(stage);
+		createjs.Touch.enable($scope.stage);
 		// enabled mouse over / out events
-		stage.enableMouseOver(10);
-		stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
+		$scope.stage.enableMouseOver(10);
+		$scope.stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
 		// load the source image:
 		var image = new Image();
 		image.src = "/images/laranja.png";
@@ -28,10 +34,10 @@ app.controller('workflowController', function($scope) {
 	function handleImageLoad(event) {
 		var image = event.target;
 		// create and populate the screen with random daisies:
-		for (var i = 0; i < 10; i++) {
+		/* for (var i = 0; i < 10; i++) {
             var proc = new Process(stage);
-		}
-		stage.update();
+		} */
+		$scope.stage.update();
 	}
     init();
 });

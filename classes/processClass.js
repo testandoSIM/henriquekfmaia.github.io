@@ -1,7 +1,6 @@
 var image = new Image();
 image.src = "images/azul.png";
 
-
 function Process (stage) {
     this.stage = stage;
     this.processImage = new ProcessImage(this);
@@ -13,8 +12,10 @@ function ProcessImage (process) {
     this.container = new createjs.Container();
     this.container.movable = true;
     this.bitmap = new createjs.Bitmap(image);
-    this.container.x = process.stage.canvas.width * Math.random() | 0;
-    this.container.y = process.stage.canvas.height * Math.random() | 0;
+    this.container.x = process.stage.canvas.width/2;
+    this.container.y = process.stage.canvas.height/2;
+    //this.container.x = process.stage.canvas.width * Math.random() | 0;
+    //this.container.y = process.stage.canvas.height * Math.random() | 0;
 
     this.container.addChild(this.bitmap);
 
