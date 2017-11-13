@@ -1,5 +1,5 @@
 var image = new Image();
-image.src = "/images/azul.png";
+image.src = "images/azul.png";
 
 
 function Process (stage) {
