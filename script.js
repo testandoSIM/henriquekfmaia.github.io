@@ -40,7 +40,7 @@ app.controller('aboutController', function($scope, $http) {
     
     $scope.CalculaAreaTriangulo = function(base, altura) {
         $scope.areaTrianguloResultado = 'Calculando...';
-        $http.get('http://db50d9f9.ngrok.io/')
+        $http.get('https://db50d9f9.ngrok.io/')
             .then(function(response) {
                 console.log('Sucesso2');
                 $scope.areaTrianguloResultado = response.data;
