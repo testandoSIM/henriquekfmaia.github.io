@@ -13,7 +13,7 @@ app.config(function($routeProvider) {
         })
 
         // route for the about page
-        .when('/about', {
+        .when('/test_matlab', {
             templateUrl : 'pages/about.html',
             controller  : 'aboutController'
         })
