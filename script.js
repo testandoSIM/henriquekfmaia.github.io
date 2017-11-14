@@ -39,12 +39,20 @@ app.controller('mainController', function($scope) {
 app.controller('aboutController', function($scope, $http) {
     
     $scope.CalculaAreaTriangulo = function(base, altura) {
-        $scope.areaTrianguloResultado = 'Calculando...';
-        $http.get('https://db50d9f9.ngrok.io/')
-            .then(function(response) {
-                console.log('Sucesso2');
-                $scope.areaTrianguloResultado = response.data;
-        });
+        if(base, altura) {
+            $scope.areaTrianguloResultado = 'Calculando...';
+            var req = {
+                method: 'GET',
+                url: 'https://8a7da1aa.ngrok.io/triArea/' + base + '/' + altura,
+                headers: {
+                  'Content-Type': 'undefined'
+                }
+               }
+            $http(req)
+                .then(function(response) {
+                    $scope.areaTrianguloResultado = response.data;
+            });
+        }
     }
 });
 
