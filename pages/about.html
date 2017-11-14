@@ -1,5 +1,17 @@
 <div class="jumbotron text-center">
-    <h1>About Page</h1>
+    <h1>Matlab Endpoint test page</h1>
 
-    <p>{{ message }}</p>
+    <p>Here we can test matlab endpoints!</p>
+    <br>
+    <form>
+        N-ésimo termo da sequência fibonacci:<br>
+        <input ng-model="fibTermo" type="text" name="firstname" style="margin-right:10px; margin-left:10px;">
+        <button class="btn btn-primary" ng-click="CalculaFibTermo(fibTermo)">Go!</button>
+        <label style="margin-left: 20px; margin-right: 20px;">{{fibResultado}}</label><br><br>
+        Área do triângulo:<br>
+        Base: <input ng-model="triBase" style="margin-bottom: 20px;" type="text" name="lastname"><br>
+        Altura: <input ng-model="triAltura" type="text" name="lastname"><br>
+        <button class="btn btn-primary" ng-click="CalculaAreaTriangulo(triBase, triAltura)">Go!</button>
+        <label style="margin-left: 20px; margin-right: 20px;">{{areaTrianguloResultado}}</label><br><br>
+      </form>
 </div>

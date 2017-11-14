@@ -36,8 +36,16 @@ app.controller('mainController', function($scope) {
     $scope.message = 'Everyone come and see how good I look!';
 });
 
-app.controller('aboutController', function($scope) {
-    $scope.message = 'Look! I am an about page.';
+app.controller('aboutController', function($scope, $http) {
+    
+    $scope.CalculaAreaTriangulo = function(base, altura) {
+        $scope.areaTrianguloResultado = 'Calculando...';
+        $http.get('http://db50d9f9.ngrok.io/')
+            .then(function(response) {
+                console.log('Sucesso2');
+                $scope.areaTrianguloResultado = response.data;
+        });
+    }
 });
 
 app.controller('contactController', function($scope) {
