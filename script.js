@@ -43,7 +43,7 @@ app.controller('aboutController', function($scope, $http) {
             $scope.areaTrianguloResultado = 'Calculando...';
             var req = {
                 method: 'GET',
-                url: 'https://8a7da1aa.ngrok.io/triArea/' + base + '/' + altura,
+                url: 'https://46ce604b.ngrok.io/triArea/' + base + '/' + altura,
                 headers: {
                   'Content-Type': 'undefined'
                 }
@@ -51,6 +51,26 @@ app.controller('aboutController', function($scope, $http) {
             $http(req)
                 .then(function(response) {
                     $scope.areaTrianguloResultado = response.data;
+            });
+        }
+    }
+    $scope.ComplexTest = function() {
+        if(true) {
+            $scope.complexObject = 'Calculando...';
+            var req = {
+                method: 'POST',
+                url: 'https://46ce604b.ngrok.io/complex_test',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                data: {
+                    name: 'aaaaa'
+                }
+               }
+            $http(req)
+                .then(function(response) {
+                    console.log(response.data);
+                    $scope.complexObject = response.data;
             });
         }
     }
