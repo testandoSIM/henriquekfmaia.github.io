@@ -2617,7 +2617,7 @@ var ScriptEditorComponent = /** @class */ (function () {
 var EndpointProvider = /** @class */ (function () {
     function EndpointProvider() {
         // public url = 'http://localhost:5000/';
-        this.url = "https://85c79e64.ngrok.io/";
+        this.url = "https://24f4845d.ngrok.io/";
         // public url = "";
     }
     return EndpointProvider;
